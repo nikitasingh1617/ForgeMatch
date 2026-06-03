@@ -1,4 +1,9 @@
 @import "tailwindcss";
+@import "tailwindcss";
+
+@theme {
+  --font-playwrite: var(--font-playwrite);
+}
 
 :root {
   --background: #ffffff;
