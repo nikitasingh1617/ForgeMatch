@@ -20,7 +20,7 @@ export default function Home() {
   return (
      <div className="flex">
           <Sidebar />
-     <main className="min-h-screen w-full py-20 flex bg-white">
+     <main className="w-full  bg-white min-h-screen py-12">
 
   
       
@@ -31,7 +31,7 @@ export default function Home() {
      
       
 
-      <div className="flex flex-row flex-1 items-start gap-8 p-8">
+      <div className="flex flex-row items-start gap-8 p-8">
 
         <div className="flex flex-col">
         

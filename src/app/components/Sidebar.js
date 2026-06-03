@@ -55,8 +55,8 @@ export default function Home() {
         <main className="min-h-screen flex bg-white">
 
          {/* Sidebar */}
-      <aside className={`bg-slate-900 text-white shadow-xl transition-all duration-300 overflow-hidden flex-shrink-0 ${sidebarOpen ? "w-72" : "w-0"}`}>
-        <div className="flex h-screen    w-72 flex-col p-5">
+      <aside className={`sticky top-0 h-screen overflow-y-auto bg-slate-900 text-white shadow-xl transition-all duration-300  flex-shrink-0 ${sidebarOpen ? "w-72" : "w-0"}`}>
+        <div className="max-h-72 overflow-y-auto flex min-h-screen  w-72 flex-col p-5">
 
           <div className= "mb-8">
         <h1 className="text-3xl font-bold font-playwrite">
@@ -67,7 +67,7 @@ export default function Home() {
         </p>
         </div>
 
-        <nav className="flex flex-col gap-2">
+        <nav className="flex flex-col mt-2 gap-2">
           {navItems.map((item) => {
             const Icon = item.icon; 
             const isActive = pathname === item.href;
@@ -91,7 +91,7 @@ export default function Home() {
           })}
         </nav>
 
-        <div className="mt-8 rounded-2xl border border-slate-800 bg-slate-900/70 p-4">
+        <div className="mt-4 rounded-2xl border border-slate-800 bg-slate-900/70 p-4">
         <div className="flex items-center gap-3">
           <div className="rounded-xl bg-blue-500/10 p-2 text-blue-400">
           <Bot size={20} />
@@ -120,6 +120,7 @@ export default function Home() {
               </h3>
 
               <div className="flex flex-col gap-2">
+                
                 {history.length === 0? (
                   <p className="rounded-xl bg-slate-900/70 p-3 text-xs text-slate-500">
                     No rankings yet
@@ -162,8 +163,15 @@ export default function Home() {
                       </p>
 
                       <p className="mt-1 text-xs text-slate-400">
-                        {item.created_at}
-                      </p>
+                        
+                        {new Date(item.created_at).toLocaleString("en-IN", {
+                                   day: "numeric",
+                                   month: "short",
+                                   year: "numeric",
+                                   hour: "numeric",
+                                   minute: "2-digit",
+                                     })}
+                                  </p>
                     </div>
                   </button>
                 ))
@@ -186,7 +194,7 @@ export default function Home() {
                 Recruiter
               </p>
               <p className="text-xs text-slate-400">
-                Talent Team
+                Talent Acquisition
               </p>
             </div>
           </div>
@@ -197,11 +205,17 @@ export default function Home() {
             <Moon size={18} />
             Dark Mode
           </span>
-
+         
           <span className="h-5 w-9 rounded-full bg-slate-700 p-0.5">
             <span className="block h-4 w-4 rounded-full bg-white"/>
           </span>
          </button>
+         <p className="flex text-xs front-gray-100 mx-3 mt-3">
+           Seed funding: ₹0
+          </p>
+          <p className="flex text-xs front-gray-100 mx-3 mt-0">
+           Dark mode progress: 12%
+          </p>
          
 
 
