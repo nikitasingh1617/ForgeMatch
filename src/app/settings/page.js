@@ -6,7 +6,6 @@
  import Image from "next/image";
  export default function Settings() {
   const pathname = usePathname();
-  const [selectedModel, setSelectedModel] = useState("");
   const [showMessage, setShowMessage]= useState(false);
 
   return (
@@ -56,77 +55,29 @@
       <input type="checkbox" />
       Weekly Performance Reports
     </label>
+    </div>
 
-    <label className="flex items-center gap-2">
-      <input type="checkbox" />
-      AI Model Status Notifications
-    </label>
-  </div>
 
-  <p className="text-green-600 mt-4">
-  🟢 Notifications Enabled
-</p>
 </div>
 
-        <div className="bg-white rounded-xl text-gray-900 border mt-6 border-gray-200 p-4 shadow-sm hover:shadow-md hover:border-orange-400 transition cursor-pointer">
-            <h2 className="text-2xl font-semibold mb-2">
+        <div className="bg-white rounded-xl text-gray-700 border mt-4 border-gray-200 p-4 shadow-sm hover:shadow-md hover:border-orange-400 transition cursor-pointer">
+            <h2 className="text-2xl font-semibold mb-2 mt-0">
                 AI Model
             </h2>
-            <div className="space-y-3">
-                <label className="flex gap-2">
-                    <input
-                      type="radio"
-                      name="model"
-                      value="Gemini 2.5"
-                      onChange={(e) => setSelectedModel(e.target.value)}
-                       />
-                         Gemini 2.5
-                </label>
-                <label className="flex gap-2">
-                    <input
-                      type="radio"
-                      name="model"
-                      value="ChatGPT"
-                      onChange={(e) => setSelectedModel(e.target.value)}
-                       />
-                        ChatGPT
-                </label>
-                <label className="flex gap-2">
-                    <input
-                      type="radio"
-                      name="model"
-                      value="Claude"
-                      onChange={(e) => setSelectedModel(e.target.value)}
-                       />
-                        Claude
-                </label>
-                <label className="flex gap-2">
-                    <input
-                      type="radio"
-                      name="model"
-                      value="Local"
-                      onChange={(e) => setSelectedModel(e.target.value)}
-                       />
-                        Local Model
-                </label>
-            </div>
+            <h2 className="text-xs font-medium mb-4">
+              1 June 2026 - 4 June 2026
+            </h2>
+            <h2 className="text-xs font-semibold mb-4">
+              Cause of death:
+            </h2>
+            <h2 className="text-xs font-medium mb-4">
+              submission_spec.docx
+            </h2>
+            
+            
             </div>
 
-            {selectedModel && (
-                                <div className="bg-white rounded-xl border border-gray-200 text-gray-900 p-4 mt-6 shadow-sm hover:shadow-md hover:border-orange-400 transition cursor-pointer">
-                               <h2 className="text-2xl font-semibold mb-4">
-                               AI Configuration
-                            </h2>
-
-                              <div className="space-y-2">
-                               <p><strong>Model:</strong> {selectedModel}</p>
-                                    <p><strong>Status:</strong> 🟢 Connected</p>
-                         <p><strong>Reasoning Mode:</strong> Enabled</p>
-                       <p><strong>Resume Explanation:</strong> Enabled</p>
-                   </div>
-                   </div>
-                )}
-                
+            
                    
          
 

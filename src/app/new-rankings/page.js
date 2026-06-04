@@ -132,7 +132,7 @@ localStorage.setItem(
   
 
   return (
-    <div className="flex">
+    <div className="flex bg-white">
           <Sidebar />
 
         <main className="min-h-screen w-full flex bg-white">
