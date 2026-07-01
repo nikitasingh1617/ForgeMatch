@@ -1,15 +1,12 @@
-<<<<<<< HEAD
 ---
 title: ForgeMatch
-emoji: 🚀
+emoji: 🔥
 colorFrom: blue
 colorTo: purple
 sdk: docker
+app_port: 3000
 pinned: false
 ---
-=======
-
->>>>>>> 4c044878e933ba81d5a8ea2080cfa2afaced3542
 
 ## ForgeMatch — AI-Powered Candidate Ranking System
 
