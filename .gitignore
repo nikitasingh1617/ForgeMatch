@@ -32,3 +32,4 @@ Backend/artifacts/
 *.pyc
 *.pyo
 .venv/
+node_modules
