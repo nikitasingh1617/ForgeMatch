@@ -33,3 +33,5 @@ Backend/artifacts/
 *.pyo
 .venv/
 node_modules
+Backend/data/candidates.jsonl
+EliteForge.csv

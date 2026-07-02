@@ -1,12 +1,3 @@
----
-title: ForgeMatch
-emoji: 🔥
-colorFrom: blue
-colorTo: purple
-sdk: docker
-app_port: 7860
-pinned: false
----
 
 ## ForgeMatch — AI-Powered Candidate Ranking System
 
@@ -189,7 +180,7 @@ backend/
 ```bash
 # 1. Clone the repository
 git clone <repository-url>
-cd EliteForge
+cd ForgeMatch
 
 # 2. Create a virtual environment (optional)
 python -m venv venv
@@ -207,6 +198,7 @@ pip install -r requirements.txt
 uvicorn backend.main:app --reload
 ```
 The server will be available at http://localhost:8000.
+
 
 ---
 ---
@@ -229,9 +221,12 @@ The server will be available at http://localhost:8000.
 # Step 1 — Build FAISS Index (One-Time)
 This step encodes all candidates and builds the FAISS index. It takes about 1 hour on a typical CPU (e.g., MacBook M1) and should be run only once.
 
+>Note : Before running the commands make sure you have candidates.jsonl at Backend/data/
+
 ```bash
-python backend/build_index.py \
---candidates backend/data/candidates.jsonl
+cd forgematch
+cd Backend
+python build_index.py --candidates data/candidates.jsonl
 ```
 
 This produces:
@@ -247,10 +242,9 @@ This produces:
 This step loads the pre‑built index, performs FAISS search, applies the hybrid ranking, and outputs the exact CSV required by the competition.
 
 ```bash
-python backend/run_submission.py \
---candidates backend/data/candidates.jsonl \
---jd backend/data/job_description.docx \
---out EliteForge.csv
+cd forgematch
+cd Backend
+python run_submission.py --candidates data/candidates.jsonl --jd data/job_description.docx --out EliteForge.csv
 ```
 
 Performance: On a 16 GB RAM CPU machine, ranking 100,000 candidates completes in 70–100 seconds, well within the 5‑minute limit.
