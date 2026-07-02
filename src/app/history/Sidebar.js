@@ -64,7 +64,7 @@ export default function Home() {
         ForgeMatch
         </h1>
         <p className="mt-1 text-sm text-slate-400 font-playwrite">
-          AI Recruiting Platform
+         Recruiting Platform
         </p>
         </div>
 

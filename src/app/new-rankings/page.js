@@ -27,7 +27,7 @@ const STEPS = [
   { id: 1, icon: Briefcase, label: "Job Domain", desc: "What role are you hiring for?" },
   { id: 2, icon: FileText, label: "Job Description", desc: "Paste the full requirements" },
   { id: 3, icon: Upload, label: "Upload Resumes", desc: "Upload Candidate Profiles" },
-  { id: 4, icon: Sparkles, label: "Run AI Ranking", desc: "Let AI find the best fit" },
+  { id: 4, icon: Sparkles, label: "Run Ranking", desc: "Let ForgeMatch find the best fit" },
 ];
 
 const STAGES = [
@@ -134,13 +134,8 @@ function FileCard({ file, onRemove }) {
   );
 }
 
-/* ─── Loading Modal ────────────────────────────────────────────────
-   NOTE: `visible` controls whether it shows at all.
-   `done` tells it the real backend job has actually finished — until
-   then it keeps looping through the stages instead of stopping, since
-   we no longer know the exact real duration up front (large batches
-   can take minutes). This avoids the modal freezing on "Ranking
-   Candidates" for a long time while work is still happening. */
+/* ─── Loading Modal ────────────────────────────────────────────────*/
+  
 function LoadingModal({ visible, done }) {
   const [stage, setStage] = useState(0);
   const [progress, setProgress] = useState(0);
@@ -196,7 +191,7 @@ function LoadingModal({ visible, done }) {
           </div>
           <div>
             <h2 className="text-xl font-bold text-gray-900 tracking-tight">
-              {isComplete ? "🎉 Analysis Complete!" : "AI is evaluating..."}
+              {isComplete ? "🎉 Analysis Complete!" : "ForgeMatch is evaluating..."}
             </h2>
             <p className="text-sm text-gray-500 font-medium">
               {isComplete
@@ -447,7 +442,7 @@ export default function NewRankings() {
               <Sparkles size={16} className="text-white" />
             </div>
             <div>
-              <h1 className="text-lg font-bold tracking-tight text-gray-900">New AI Ranking</h1>
+              <h1 className="text-lg font-bold tracking-tight text-gray-900">New Ranking</h1>
               <p className="text-xs font-medium text-emerald-600">
                 Step {step} of 4
               </p>
@@ -535,7 +530,7 @@ export default function NewRankings() {
                     {jobDescription.length} characters
                   </p>
                   <p className="text-xs text-blue-600 font-semibold">
-                    More detail = better AI matching
+                    More detail = better matching
                   </p>
                 </div>
               </div>
@@ -656,7 +651,7 @@ export default function NewRankings() {
                   <div className="flex items-start gap-3">
                     <Brain size={20} className="text-blue-500 flex-shrink-0 mt-0.5" />
                     <p className="text-sm font-medium text-gray-700 leading-relaxed">
-                      AI will analyze each candidate against your job requirements, extract skills,
+                      ForgeMatch will analyze each candidate against your job requirements, extract skills,
                       evaluate experience, and produce a ranked list with detailed reasoning.
                       For large batches (500+ resumes) this can take a few minutes — you can
                       leave this tab open and check the History page later if you navigate away.
@@ -704,7 +699,7 @@ export default function NewRankings() {
                   className="flex-1 flex items-center justify-center gap-3 py-3.5 rounded-xl text-sm font-bold text-white transition-all duration-200 bg-gradient-to-r from-blue-500 to-purple-600 shadow-lg shadow-blue-500/30 hover:shadow-xl hover:shadow-blue-500/40 hover:scale-[1.02] active:scale-[0.98] disabled:opacity-60 disabled:cursor-not-allowed disabled:hover:scale-100"
                 >
                   <Sparkles size={18} />
-                  {loading ? "Ranking in progress..." : "Run AI Ranking"}
+                  {loading ? "Ranking in progress..." : "Run Ranking"}
                   <ArrowRight size={16} />
                 </button>
               )}

@@ -254,7 +254,7 @@ useEffect(() => {
               </div>
               <h3 className="text-base font-bold text-black mb-2">No rankings found</h3>
               <p className="text-sm mb-6" style={{ color: "var(--text-secondary)" }}>
-                {search ? `No results matching "${search}"` : "Run your first AI ranking to see it here."}
+                {search ? `No results matching "${search}"` : "Run your first ranking to see it here."}
               </p>
               {!search && (
                 <Link href="/new-rankings">

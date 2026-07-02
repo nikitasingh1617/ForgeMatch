@@ -236,7 +236,7 @@ function assignRecommendations(allRankings) {
   return map;
 }
 
-// ─── Rest of helpers (unchanged) ─────────────────────────────────────────────
+// ─── Rest of helpers  ─────────────────────────────────────────────
 
 function confidenceLabel(level, credibility, evidenceScore) {
   const cred = safe(credibility, 0);
@@ -451,9 +451,7 @@ function RecruiterIntelPanel({ candidate, recMap = new Map() }) {
   const validatedCountRaw = c.validated_skill_count !== undefined && c.validated_skill_count !== null
     ? c.validated_skill_count
     : (evidenceScore !== null ? Math.round((evidenceScore / 100) * skillCount) : null);
-  // Backend's validated_skill_count is sometimes computed against a different
-  // skill list than matched_skills, which can produce impossible ratios like
-  // 9/8 or 14/8. Clamp it so the displayed count never exceeds the denominator.
+
   const validatedCount = validatedCountRaw !== null ? Math.min(validatedCountRaw, skillCount) : null;
 
   const evidenceBullets = [];
@@ -828,8 +826,8 @@ function RecruiterTrustPanel({ candidate }) {
   );
 }
 
-// ─── AI Confidence Card ──────────────────────────────────────────────────────
-function AIConfidenceCard({ candidate }) {
+// ─── Confidence Card ──────────────────────────────────────────────────────
+function ForgeMatchConfidenceCard({ candidate }) {
   const c = candidate;
   const conf = confidenceLabel(
     c.confidence_level,
@@ -1226,8 +1224,8 @@ const recommendedInterviews = allRankings.filter((c) => {
         {/* ── top bar ── */}
         <header className="bg-white border-b border-gray-100 px-6 py-3 flex items-center gap-4 sticky top-0 z-30 shadow-lg">
           <div className="flex-1 min-w-0">
-            <h1 className="text-base font-semibold text-gray-900">AI Talent Intelligence Report</h1>
-            <p className="text-xs text-gray-700">AI-powered candidate analysis and ranking</p>
+            <h1 className="text-base font-semibold text-gray-900">Talent Intelligence Report</h1>
+            <p className="text-xs text-gray-700">Comprehensive candidate analysis and ranking</p>
           </div>
           <div className="flex items-center gap-2">
             <span className="hidden sm:flex items-center gap-1.5 text-xs bg-emerald-50 text-emerald-700 border border-emerald-200 px-3 py-1.5 rounded-full font-medium">
@@ -1683,8 +1681,8 @@ const recommendedInterviews = allRankings.filter((c) => {
 
                           </div>
 
-                          {/* AI Confidence Card */}
-                          <AIConfidenceCard candidate={c} />
+                          {/* ForgeMatch Confidence Card */}
+                          <ForgeMatchConfidenceCard candidate={c} />
 
                           {/* Recruiter Trust Panel */}
                           <RecruiterTrustPanel candidate={c} />

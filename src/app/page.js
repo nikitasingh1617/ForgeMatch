@@ -176,14 +176,7 @@ export default function Home() {
     setRecentActivity(stats.recent_activity);
   };
 
-  // loadStats(force):
-  //   - force = false (default): serve from sessionStorage cache if it's
-  //     still fresh (< 1 min old). This is what avoids re-hitting a
-  //     cold-starting backend every time the user revisits the Dashboard.
-  //   - force = true: always hit the network. Not currently called with
-  //     true anywhere, but kept as an escape hatch (e.g. a manual
-  //     "Refresh" button) since the cache is also cleared automatically
-  //     right after a new ranking finishes (see new-rankings/page.js).
+
   const loadStats = useCallback(async (force = false) => {
     try {
       if (!force) {
@@ -219,12 +212,6 @@ export default function Home() {
     loadStats();
   }, [loadStats]);
 
-  // Re-check whenever the user navigates back to the dashboard route.
-  // This still respects the cache (see loadStats above), so it's cheap
-  // unless the cache has genuinely expired or was cleared after a new
-  // ranking completed — App Router can keep this page instance alive
-  // across navigation, and without this the KPIs/gauge could otherwise
-  // show stale data indefinitely.
   useEffect(() => {
     if (pathname === "/") {
       loadStats();
@@ -279,7 +266,7 @@ export default function Home() {
               <div>
                 <div className="inline-flex items-center gap-2 rounded-full px-3 py-1.5 mb-4 bg-blue-100/50 border border-blue-200">
                   <Sparkles size={12} className="text-blue-700" />
-                  <span className="text-sm font-extrabold tracking-wide text-blue-700">AI-Powered Recruitment</span>
+                  <span className="text-sm font-extrabold tracking-wide text-blue-700">Semantic Recruitment</span>
                 </div>
                 <h1 className="text-4xl md:text-5xl font-black leading-tight tracking-tight">
                   <span className="text-gray-900">Rank Smarter.</span>
@@ -287,7 +274,7 @@ export default function Home() {
                   <span className="bg-gradient-to-r from-sky-500 via-blue-500 to-violet-500 bg-clip-text text-transparent">Hire Faster.</span>
                 </h1>
                 <p className="mt-4 text-base font-medium max-w-md text-gray-700">
-                  AI evaluates every candidate against your exact requirements — skills,
+                  ForgeMatch evaluates every candidate against your exact requirements — skills,
                   experience, and cultural fit — in seconds.
                 </p>
                 <Link href="/new-rankings">
@@ -438,7 +425,7 @@ export default function Home() {
                 label="Time Saved"
                 value={hoursSaved}
                 suffix="h"
-                sub="AI Screening"
+                sub="ForgeMatch Screening"
                 accent="emerald"
                 delay={400}
                 loading={loading}
@@ -593,7 +580,7 @@ export default function Home() {
                   icon: Sparkles,
                   color: "from-blue-500 to-violet-600",
                   title: "New Ranking",
-                  desc: "Upload resumes and start a new AI screening process.",
+                  desc: "Upload resumes and start a new screening process.",
                   href: "/new-rankings",
                   cta: "Start Screening",
                 },
@@ -601,7 +588,7 @@ export default function Home() {
                   icon: BarChart3,
                   color: "from-cyan-500 to-blue-600",
                   title: "Latest Results",
-                  desc: "View candidate rankings and detailed AI evaluations.",
+                  desc: "View candidate rankings and detailed evaluations.",
                   href: "/results",
                   cta: "View Results",
                 },
