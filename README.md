@@ -287,17 +287,15 @@ In our tests, honeypot candidates consistently rank below genuine profiles, keep
 
 ## 🌐 Sandbox / Demo Link
 We provide a hosted environment where the ranking can be tested on a small sample.
-<<<<<<< HEAD
-<<<<<<< HEAD
-Link: https://forgematch-demo.vercel.app
-=======
 Link: https://forgematch.vercel.app
->>>>>>> 4c044878e933ba81d5a8ea2080cfa2afaced3542
-=======
-Link: https://forgematch.vercel.app
->>>>>>> fceb95ad3334fb20af7403614281d734b1e69ab9
 The sandbox accepts a sample JSONL file (≤100 candidates) and returns a ranked CSV, demonstrating the system’s end‑to‑end functionality within the compute limits.
 
+Test the sandbox with the sample candidate file: [Click here to download the data set](https://drive.google.com/file/d/1gkT8OhnzduF-0zoHf1O9joxA9fq2Y6yO/view?usp=drivesdk)
+
+The above file contains 100 candidates resumes in json format with 20 different job domain.
+>20 job titles (5 each): Backend/Frontend/Full Stack Engineer, Data Analyst, Business Analyst, Data Scientist, Data Engineer, DevOps Engineer, ML Engineer, Product Manager, QA Engineer, Android/iOS Engineer, UI/UX Designer, Cloud Engineer, SRE, Security Engineer, DBA, Systems Engineer, Engineering Manager.
+
+Check out demo video : [Demo Video](https://drive.google.com/file/d/1SvHc7zVZsWAsZIL2x3cyzI7z2R-HnpeZ/view?usp=sharing)
 
 ---
 # 🌟 Key Highlights
@@ -316,7 +314,7 @@ Team Name : Elite Forge
 |Member|Role|
 |:---:|:---:|
 |Nikita Singh	|Team Lead, Frontend, Backend, AI assistant & Ranking Engine|
-|Yashank Sogra|	Frontend, Backend, AI Assistant & Ranking engine|
+|Yashank Sogra|	Frontend, Backend, AI Assistant & Ranking Engine|
 
 
 # 🧾 License
